@@ -1,0 +1,51 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="../../WEB-INF/template.xhtml">
+
+    <ui:define name="title">
+        Preferências - <span class="subitem">Preferências</span>
+    </ui:define>
+
+    <ui:define name="description">
+        Preferências do Usuário.
+    </ui:define>
+
+    <ui:define name="implementation">
+		
+		<h3 style="margin-top:0">Preferências do Usuário</h3>
+		
+		<p:panel header="Trocar Tema">
+			<h:panelGrid columns="1" cellpadding="10">
+				<p:outputLabel value="Tema atual: #{configuracaoBean.tema}" />
+			
+				<p:selectOneMenu id="tema" var="t" value="#{configuracaoBean.tema}" style="width:125px">
+				
+		            <f:selectItem itemLabel="Selecione..." itemValue="" noSelectionOption="true" />
+		            
+		            <f:selectItems value="#{temaBean.temas}" var="tema" itemValue="#{tema.nome}" />
+		            
+		            <p:column style="width:10%">
+		                <span class="ui-theme ui-theme-#{t}"></span>
+		            </p:column>
+		 
+		            <p:column>
+		                <h:outputText value="#{t}" />
+		            </p:column>
+		        </p:selectOneMenu>
+	        </h:panelGrid>
+        </p:panel>
+    
+    </ui:define>
+    
+   	<ui:define name="source">
+   	
+        <p:growl id="growl" showDetail="true" life="5000" />
+        
+    	<p:commandButton value="Trocar Tema" actionListener="#{configuracaoBean.trocarTema()}" update="@all" />
+
+    </ui:define>
+
+</ui:composition>

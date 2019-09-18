@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Controle Financeiro Login</title>
+	
+	<style>
+	
+		.center {
+			margin: 0 auto;
+		}
+		
+		.margin-top-100 {
+			margin-top: 100px;		
+		}
+		
+	</style>
+	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
+</h:head>
+<h:body>
+	
+	<h:form id="form" prependId="false">
+	
+		<p:growl id="growl" showDetail="true" life="3000" />
+	
+	 	<p:panelGrid columns="1" cellpadding="5" styleClass="ui-fluid center ui-noborder margin-top-100">
+	 		<h1>Login</h1>
+	 	</p:panelGrid>
+	 	
+ 		<p:panelGrid columns="2" cellpadding="5" styleClass="ui-fluid center ui-noborder">
+ 		
+            <p:outputLabel for="email" value="Email:" />
+            <p:inputText id="email" value="#{loginBean.email}" required="true" label="email" />
+             
+            <p:outputLabel for="senha" value="Senha:" />
+            <p:password id="senha" value="#{loginBean.senha}" required="true" label="senha" />
+             
+            <f:facet name="footer">
+                <p:commandButton id="login" value="Login" update="growl" action="#{loginBean.login()}" icon="pi pi-sign-in" />
+            </f:facet>
+        </p:panelGrid>
+		
+	</h:form>
+	
+	<br />
+	
+	<p:panelGrid columns="1" cellpadding="5" styleClass="ui-fluid center ui-noborder">
+		<p:link value="Cadastrar" outcome="/publico/cadastro.xhtml" />
+	</p:panelGrid>
+		
+</h:body>
+</html>

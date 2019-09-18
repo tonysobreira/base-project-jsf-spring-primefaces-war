@@ -1,0 +1,44 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sec="http://www.springframework.org/security/facelets/tags"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	template="../../WEB-INF/template.xhtml">
+	
+	<ui:define name="head">
+		<f:metadata>
+<!--     		<f:event type="preRenderView" listener="#{usuarioCompartilhadoBean.limparDados}" /> -->
+			<f:viewAction action="#{dialogBean.init}" />
+    	</f:metadata>
+	</ui:define>
+
+	<ui:define name="title">
+        Dialog - <span class="subitem">Dialog</span>
+	</ui:define>
+
+	<ui:define name="description">
+        Dialog.
+    </ui:define>
+
+	<ui:define name="implementation">
+
+		<h1>Dialog</h1>
+
+	</ui:define>
+
+	<ui:define name="source">
+
+		<p:growl id="growl" showDetail="true" life="5000" />
+
+		<p:commandButton value="Dialog Example"
+			actionListener="#{dialogBean.openDialog}" process="@this"
+			update="growl" >
+			<p:ajax event="dialogReturn" listener="#{dialogBean.onReturnDialog}" update="growl" />	
+		</p:commandButton>
+
+	</ui:define>
+
+</ui:composition>

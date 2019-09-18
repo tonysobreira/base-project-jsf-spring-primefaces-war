@@ -1,0 +1,127 @@
+<!DOCTYPE html [
+    <!ENTITY nbsp "&#160;">
+    <!ENTITY bull "&#8226;">
+    <!ENTITY copy "&#169;">
+]>
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pe="http://primefaces.org/ui/extensions">
+<h:head>
+    <f:facet name="first">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link rel="shortcut icon" type="image/png" href="#{request.contextPath}/resources/main/images/favicon.png" />
+    </f:facet>
+
+    <title>Template Dialog</title>
+
+    <h:outputStylesheet name="main/css/showcase.css" />
+    <h:outputStylesheet name="main/css/perfect-scrollbar.css" />
+    <h:outputStylesheet name="main/css/sh.css" />
+    <h:outputScript name="jquery/jquery.js" library="primefaces" />
+    <h:outputScript name="jquery/jquery-plugins.js" library="primefaces" />
+    <h:outputScript name="main/js/perfect-scrollbar.js" />
+    <h:outputScript name="main/js/showcase.js" />
+    <ui:insert name="head" />
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+  		_gaq.push(['_setAccount', 'UA-12200033-1']);
+  		_gaq.push(['_trackPageview']);
+
+  		(function() {
+   			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  		})();
+	</script>
+	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
+	<p:importConstants type="br.com.controlefinanceiro.constants.ModelsConstantes" var="modelsConstantes" />
+	<p:importConstants type="br.com.controlefinanceiro.constants.MessagesConstantes" var="messagesConstantes" />  
+</h:head>
+
+<h:body>
+
+    <!-- PC CONTENT STARTS HERE-->
+    <div class="PC">
+        
+       
+    <script type="text/javascript">
+        restoreMenuState();
+    </script>
+    
+    <div id="CONTENTSIDE">
+    	<div id="CONTENTSIDEindent">
+        	<!-- header bar start-->
+<!--                 <span class="PFTopLinks floatRight boldFont cursorPointer" id="themeSwitcher"> -->
+<!--                         <h:graphicImage name="main/images/themeswitcher.svg" /><span class="PFGrayText">PF</span><span class="PFDarkText">Themes</span> -->
+<!--                         <div id="GlobalThemeSwitcher" class="navOverlay"> -->
+<!--                             <ui:repeat value="#{themeSwitcherView.themes}" var="theme"> -->
+<!--                                 <a href="#" data-theme="#{theme.name}"><span class="ui-theme ui-theme-#{theme}"></span><span class="ui-text">#{theme.displayName}</span></a> -->
+<!--                             </ui:repeat> -->
+<!--                         </div> -->
+<!--                         <p:remoteCommand name="changeTheme" actionListener="#{guestPreferences.changeTheme}" /> -->
+<!--                 </span> -->
+                
+            <!-- header bar end-->
+
+            <ui:insert name="content">
+                
+                <ui:insert name="subsubmenu"></ui:insert>
+                
+                <div class="ContentSideSections">
+                    <div class="Content100 overHidden TextShadow">
+                        <span class="fontSize30 TextShadow orange regularFont marginBottom20 dispBlock"><ui:insert name="title" /></span>
+                        <span class="defaultText dispTable"><ui:insert name="description" />
+                        </span>
+                    </div>
+                </div>
+
+				<h:form id="form" prependId="false">
+
+                <div class="ContentSideSections Implementation">
+                    <ui:insert name="implementation" />
+                </div>
+
+                <div id="SourceContentSide" class="ContentSideSections Source">
+                    <div class="Content100 overHidden TextShadow">
+                        <span class="defaultText">
+                            <span class="fontSize18 logoBlueText">
+                                <ui:insert name="source" />
+                            </span>
+                        </span>
+                    </div>
+                </div>
+           
+                </h:form>
+            </ui:insert>
+            
+        </div>
+    </div>
+    
+    </div>
+    <!-- PC CONTENT END-->
+    
+     <ui:insert name="status">
+        <p:ajaxStatus style="width:64px;height:64px;position:fixed;right:5px;bottom:5px">
+            <f:facet name="start">
+                <p:graphicImage name="main/images/loader.gif" />
+            </f:facet>
+
+            <f:facet name="complete">
+                <h:outputText value="" />
+            </f:facet>
+        </p:ajaxStatus>
+    </ui:insert>
+    
+    <ui:insert name="highlight">
+        <h:outputScript name="main/js/sh.js" target="body"/>
+    </ui:insert>
+    
+    <ui:insert name="body"></ui:insert>
+</h:body>
+</html>

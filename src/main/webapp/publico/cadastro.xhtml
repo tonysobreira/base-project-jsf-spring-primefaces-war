@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:sec="http://www.springframework.org/security/facelets/tags"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Controle Financeiro Cadastro</title>
+	
+	<style>
+	
+		.center {
+			margin: 0 auto;
+		}
+		
+		.margin-top-60 {
+			margin-top: 60px;		
+		}
+		
+	</style>
+	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
+	<h:outputStylesheet name="main/css/style.css" />
+</h:head>
+<h:body>
+
+	<h:form id="form" prependId="false">
+	
+		<p:growl id="growl" showDetail="true" life="3000" />
+	
+		<p:commandButton value="Voltar" onclick="window.history.back();"/>
+
+		<p:panelGrid columns="1" cellpadding="5" styleClass="ui-fluid center ui-noborder margin-top-60">
+			<h1>Cadastro</h1>
+		</p:panelGrid>
+		
+
+		<p:panelGrid columns="2" cellpadding="5" styleClass="ui-fluid center ui-noborder">
+		
+			<p:outputLabel for="nome" value="Nome:" />
+			<p:inputText id="nome" value="#{cadastroBean.nome}" required="true" label="nome" />
+
+			<p:outputLabel for="email" value="Email:" />
+			<p:inputText id="email" value="#{cadastroBean.email}" required="true" label="email" />
+
+			<p:outputLabel for="inputSenha1" value="Senha:" />
+			<p:password id="inputSenha1" value="#{cadastroBean.senha}" required="true" label="senha1" feedback="true" match="inputSenha2" />
+
+			<p:outputLabel for="inputSenha2" value="Repetir Senha:" />
+			<p:password id="inputSenha2" value="#{cadastroBean.senha}" required="true" label="senha2" feedback="true" />
+
+			<f:facet name="footer">
+				<p:commandButton value="Salvar" icon="pi pi-save"
+					actionListener="#{cadastroBean.salvarUsuario()}" process="@this @form"
+					update="growl" oncomplete="PF('cadastroDialogWidget').show()" />
+			</f:facet>
+		</p:panelGrid>
+		
+		<p:dialog header="Usuário cadastrado com sucesso!" widgetVar="cadastroDialogWidget" modal="true" closable="false" resizable="false">
+			<p:outputPanel styleClass="text-align-center">
+	    		<p:commandButton value="Ok" actionListener="#{cadastroBean.finalizar}" process="@this" />
+	    	</p:outputPanel>
+		</p:dialog>
+		
+	</h:form>
+
+</h:body>
+</html>

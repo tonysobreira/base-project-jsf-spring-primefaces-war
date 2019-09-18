@@ -1,0 +1,120 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <!-- header bar start-->
+    <div class="ContentSideSections" id="PFTopLinksCover">
+    	
+    	<p:importConstants type="br.com.controlefinanceiro.constants.MessagesConstantes" var="MessagesConstantes" /> 
+    	
+        <a id="LOGOTEXTSIDE" href="#{request.contextPath}/index.xhtml">
+            <span class="dispBlock logoDarkText fontSize30">#{MessagesConstantes.PROJECT_TITLE}</span>
+            <span class="dispBlock logoBlueText fontSize28 regularFont">#{MessagesConstantes.PROJECT_SUBTITLE}</span>
+        </a>
+        
+        <!-- Opções -->
+        <span class="PFTopLinks floatRight boldFont cursorPointer" id="opcoes" title="Opções" style="margin-right: 3em;">
+            <h:form>
+            
+                <i class="pi pi-cog" style="font-size: 6em;"></i>
+                
+                <span class="PFGrayText"></span>
+                <span class="PFDarkText"></span>
+                
+                <div id="globalOpcoes" class="navOverlay">
+                    
+                    <div class="topbar-submenu-header">Opções</div>
+                    
+	                    <a href="#{request.contextPath}/restrito/configuracao/preferencias.xhtml">
+		                    <span class="pi pi-user font-size-3m"></span>
+		                    <span class="ui-text">Preferências</span>
+	                    </a>
+	                    
+	                    <a href="#{request.contextPath}/logout">
+		                    <span class="pi pi-sign-out font-size-3m"></span>
+		                    <span class="ui-text">Sair</span>
+	                    </a>
+                    
+                </div>
+                
+            </h:form>
+        </span>
+        
+        <!-- Notificações -->
+        <span class="PFTopLinks floatRight boldFont cursorPointer" id="notificacao" title="Notificações">
+            <h:form>
+            
+                <i class="pi pi-bell font-size-6m"></i>
+                
+                <span class="PFGrayText"></span>
+                <span class="PFDarkText"></span>
+                
+                <div id="globalNotificacao" class="navOverlay">
+                    
+                    <div class="topbar-submenu-header">Notificações</div>
+                    
+                    <a href="#">
+	                    <span class="pi pi-user-plus font-size-3m"></span>
+	                    <span class="ui-text">Notificação 1</span>
+                    </a>
+                    
+                    <a href="#">
+	                    <span class="pi pi-user-minus font-size-3m"></span>
+	                    <span class="ui-text">Notificação 2</span>
+                    </a>
+                    
+                </div>
+                
+            </h:form>
+        </span>
+        
+        <!-- Mensagens -->
+        <span class="PFTopLinks floatRight boldFont cursorPointer" id="mensagem" title="Mensagens">
+            <h:form>
+            
+                <i class="pi pi-comment font-size-6m"></i>
+                
+                <span class="PFGrayText"></span>
+                <span class="PFDarkText"></span>
+                
+                <div id="globalMensagem" class="navOverlay">
+                    
+                    <div class="topbar-submenu-header">Mensagens</div>
+                    
+                    <a href="#">
+	                    <span class="pi pi-envelope font-size-3m"></span>
+	                    <span class="ui-text">Mensagem 1</span>
+                    </a>
+                    
+                    <a href="#">
+	                    <span class="pi pi-envelope font-size-3m"></span>
+	                    <span class="ui-text">Mensagem 2</span>
+                    </a>
+                    
+                </div>
+                
+            </h:form>
+        </span>
+		
+        <a id="mobile-menu-btn" href="#">
+            <i class="fa fa-bars"></i>
+        </a>
+
+        <div class="mobileLogoCover">
+            <h:graphicImage name="main/images/logoBlue.svg" style="height:40px;" styleClass="floatLeft marginRight10"/>
+            <span class="dispBlock logoDarkText fontSize16 floatLeft">Base 
+            	<span class="dispBlock logoBlueText fontSize18 boldFont">Project</span>
+            </span>
+            
+            <span class="dispBlock logoBlueText fontSize18 boldFont">
+            	<p:link value="Logout" href="#{request.contextPath}/logout" style="margin-left:10px;" />
+            </span>
+            
+        </div>
+
+    </div>
+    <!-- header bar end-->
+
+</ui:composition>

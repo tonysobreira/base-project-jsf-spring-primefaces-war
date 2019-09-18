@@ -1,0 +1,37 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="../../WEB-INF/templateDialog.xhtml">
+
+    <ui:define name="head">
+		<f:metadata>
+<!--     		<f:event type="preRenderView" listener="#{usuarioCompartilhadoBean.limparDados}" /> -->
+			<f:viewAction action="#{dialogBean.init}" />
+    	</f:metadata>
+	</ui:define>
+    
+    <ui:define name="title">
+        Dialog Example
+    </ui:define>
+
+    <ui:define name="description">
+        Dialog Example.
+    </ui:define>
+
+    <ui:define name="implementation">
+        
+        <h1>Dialog Example</h1>
+        <p:inputText id="text" value="#{dialogBean.text}" />
+        
+    </ui:define>
+
+    <ui:define name="source">
+        
+        <p:commandButton value="Close Dialog"
+			actionListener="#{dialogBean.closeDialog}" process="@this text" />
+
+    </ui:define>
+
+</ui:composition>

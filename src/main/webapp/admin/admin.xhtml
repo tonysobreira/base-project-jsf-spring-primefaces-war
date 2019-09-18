@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:sec="http://www.springframework.org/security/facelets/tags"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+				xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+                template="../WEB-INF/template.xhtml">
+                
+    <ui:define name="title">
+        Admin - <span class="subitem">Admin</span>
+    </ui:define>
+
+    <ui:define name="description">
+        Admin.
+    </ui:define>
+
+    <ui:define name="implementation">
+		
+	   	<p:outputLabel value="Bem-vindo #{usuarioBean.getNomeUsuario()}" />
+
+    </ui:define>
+    
+   	<ui:define name="source">
+        
+        <p:panel>
+			<sec:ifAnyGranted roles="ROLE_ADMIN">
+				<h:outputText value="Você tem ADMIN ROLE" />
+			</sec:ifAnyGranted>
+			<br />
+			<sec:ifAnyGranted roles="ROLE_USUARIO">
+				<h:outputText value="Você tem USUARIO ROLE" />
+			</sec:ifAnyGranted>
+		</p:panel>
+
+    </ui:define>
+
+</ui:composition>
