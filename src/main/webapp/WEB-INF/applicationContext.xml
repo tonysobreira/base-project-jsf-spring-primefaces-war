@@ -46,9 +46,9 @@
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="org.postgresql.Driver" />
 		
-		<property name="jdbcUrl" value="jdbc:postgresql://10.41.24.27/controlefinanceiro"/>
-		<property name="user" value="postgres" />
-		<property name="password" value="1234" />
+		<property name="jdbcUrl" value="jdbc:postgresql://ec2-54-152-185-191.compute-1.amazonaws.com:5432/dscnvgiskubmn?useSSL=true"/>
+		<property name="user" value="gcgxoejxrpymid" />
+		<property name="password" value="db1151c99cd6a0737d184a0b43500065bd1ffa50a9f039542c78503ea8b5db00" />
 		
 		<property name="minPoolSize" value="3" />
 	    <property name="maxPoolSize" value="30" />
@@ -70,8 +70,8 @@
 		<property name="jpaProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
-<!--                 <prop key="hibernate.hbm2ddl.auto">create</prop> -->
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
+<!--                 <prop key="hibernate.hbm2ddl.auto">update</prop> -->
             </props>
         </property>
 	</bean>
